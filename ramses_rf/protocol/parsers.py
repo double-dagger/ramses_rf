@@ -2454,7 +2454,7 @@ def parser_3ef0(payload, msg) -> dict:
         # RP --- 10:138822 01:187666 --:------ 3EF0 006 0064100C00FF
         # RP --- 10:138822 01:187666 --:------ 3EF0 006 0064100200FF
         assert payload[4:6] in ("10", "11"), f"byte 2: {payload[4:6]}"  # maybe 00 too?
-        mod_level = percent_from_hex(payload[2:4], high_res=False)  # 00-64 (or FF)
+        mod_level = percent_from_hex(payload[2:4], high_res=True)  # 00-64 (or FF)
 
     result = {
         "modulation_level": mod_level,  # 0008[2:4], 3EF1[10:12]
